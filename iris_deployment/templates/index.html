@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Prediction</title>
+    <link rel="icon" type="image/png" href="../static/iris.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS styles */
+        #output-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Iris Prediction</h1>
+        <form method="post" class="mt-4">
+            <div class="form-group">
+                <label for="sepal_length">Sepal Length (cm):</label>
+                <input type="text" class="form-control" id="sepal_length" name="field1">
+            </div>
+            <div class="form-group">
+                <label for="sepal_width">Sepal Width (cm):</label>
+                <input type="text" class="form-control" id="sepal_width" name="field2">
+            </div>
+            <div class="form-group">
+                <label for="petal_length">Petal Length (cm):</label>
+                <input type="text" class="form-control" id="petal_length" name="field3">
+            </div>
+            <div class="form-group">
+                <label for="petal_width">Petal Width (cm):</label>
+                <input type="text" class="form-control" id="petal_width" name="field4">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        {% if result %}
+            <div id="output-container" class="mt-4">
+                <h2>Prediction:</h2>
+                <input type="text" class="form-control" id="output" value="{{ result }}" readonly>
+                <button type="button" class="btn btn-secondary mt-2" onclick="clearOutput()">Clear</button>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function clearOutput() {
+            document.getElementById("output").value = "";
+        }
+    </script>
+</body>
+</html>
